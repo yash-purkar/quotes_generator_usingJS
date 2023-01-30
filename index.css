@@ -23,7 +23,7 @@ body {
 .container {
   font-size: 20px;
   border: 1px solid #3730a3;
-  height: 280px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,4 +62,8 @@ body {
   border-color: #312e81;
   color: #312e81;
   cursor: pointer;
+}
+
+img {
+  color: blueviolet;
 }

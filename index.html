@@ -4,39 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quote Generator</title>
+    <title>Quotes Generator</title>
     <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
     <div class="main_div">
       <div class="innerDiv">
-        <h1 id="heading">Quote generator</h1>
+        <h1 id="heading">Quotes generator</h1>
         <div class="container">
           <p id="text"></p>
-
           <br />
           <button id="btn">Next</button>
+          <a href="#" id="tweetThis">Tweet This</a>
           <small id="author"></small>
         </div>
       </div>
     </div>
+
     <script>
       let API_URL = "https://type.fit/api/quotes";
-      let response = "";
-
       let text = document.getElementById("text");
       let author = document.getElementById("author");
       let btn = document.getElementById("btn");
+      let tweetThis = document.getElementById("tweetThis");
+
+      let response = "";
+      let quote = "";
 
       const randomQuote = () => {
         let randomNum = Math.floor(Math.random() * 1643);
-        let quote = response[randomNum];
+        quote = response[randomNum];
+
         // console.log(response[randomNum]);
 
         setTimeout(() => {
           text.innerText = "LOADING...";
-          author.innerText = "✍🏻Unknown";
+          author.innerText = "✍🏻loading...";
         });
 
         setTimeout(() => {
@@ -55,6 +59,10 @@
       };
 
       btn.addEventListener("click", randomQuote);
+      tweetThis.addEventListener("click", () => {
+        let twitterUrl = `https://twitter.com/intent/tweet?text=${quote.text}`;
+        window.open(twitterUrl);
+      });
 
       getQuotes();
     </script>
