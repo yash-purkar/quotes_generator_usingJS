@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&family=Lato&family=Montserrat:wght@300;600&family=Mulish&family=Noto+Serif:wght@700&family=Open+Sans:wght@300;600&family=Raleway:wght@200;600&display=swap");
+
 * {
   padding: 0px;
   margin: 0px;
   color: #312e81;
+  font-family: "Itim", cursive;
 }
 
 body {
@@ -19,7 +22,7 @@ body {
 }
 .container {
   font-size: 20px;
-  border: 2px solid #3730a3;
+  border: 1px solid #3730a3;
   height: 280px;
   display: flex;
   flex-direction: column;
@@ -41,16 +44,22 @@ body {
 #btn {
   width: fit-content;
   padding: 4px 15px;
-  background-color: #c7d2fe;
+  background-color: #312e81;
   border: 1px solid #312e81;
-  color: #312e81;
+  color: #c7d2fe;
   margin-bottom: 20px;
   letter-spacing: 1px;
 }
 
 #author {
-  font-weight: bold;
   align-self: flex-end;
   margin: 5px;
   letter-spacing: 1px;
+}
+
+#btn:hover {
+  background-color: #c7d2fe;
+  border-color: #312e81;
+  color: #312e81;
+  cursor: pointer;
 }
