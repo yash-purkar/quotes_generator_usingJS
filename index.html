@@ -4,18 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
-  <body>
-    <h1>Quote generator</h1>
-    <p id="text"></p>
-    <small id="author"></small>
-    <br />
-    <button id="btn">Next</button>
 
+  <body>
+    <div class="main_div">
+      <div class="innerDiv">
+        <h1 id="heading">Quote generator</h1>
+        <div class="container">
+          <p id="text"></p>
+
+          <br />
+          <button id="btn">Next</button>
+          <small id="author"></small>
+        </div>
+      </div>
+    </div>
     <script>
       let API_URL = "https://type.fit/api/quotes";
       let response = "";
+
       let text = document.getElementById("text");
       let author = document.getElementById("author");
       let btn = document.getElementById("btn");
@@ -24,10 +33,18 @@
         let randomNum = Math.floor(Math.random() * 1643);
         let quote = response[randomNum];
         // console.log(response[randomNum]);
-        text.innerText = quote.text;
-        author.innerText = quote.author
-          ? `By ${response[randomNum].author}`
-          : "By yash purkar";
+
+        setTimeout(() => {
+          text.innerText = "LOADING...";
+          author.innerText = "✍Unknown";
+        });
+
+        setTimeout(() => {
+          text.innerText = quote.text;
+          author.innerText = quote.author
+            ? `✍${response[randomNum].author}`
+            : "✍yash purkar";
+        }, 1000);
       };
 
       const getQuotes = async () => {
