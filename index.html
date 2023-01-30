@@ -8,24 +8,36 @@
   </head>
   <body>
     <h1>Quote generator</h1>
-    <p class="text"></p>
-    <small class="author"></small>
+    <p id="text"></p>
+    <small id="author"></small>
+    <br />
+    <button id="btn">Next</button>
 
     <script>
       let API_URL = "https://type.fit/api/quotes";
       let response = "";
+      let text = document.getElementById("text");
+      let author = document.getElementById("author");
+      let btn = document.getElementById("btn");
 
       const randomQuote = () => {
         let randomNum = Math.floor(Math.random() * 1643);
-        console.log(response[randomNum]);
+        let quote = response[randomNum];
+        // console.log(response[randomNum]);
+        text.innerText = quote.text;
+        author.innerText = quote.author
+          ? `By ${response[randomNum].author}`
+          : "By yash purkar";
       };
 
       const getQuotes = async () => {
         let data = await fetch(API_URL);
         response = await data.json();
-        console.log(response);
+        // console.log(response);
         randomQuote();
       };
+
+      btn.addEventListener("click", randomQuote);
 
       getQuotes();
     </script>
